@@ -58,9 +58,8 @@
       <li>We do <strong>not</strong> operate a server that receives your video content. All stream sniffing, downloading, segment joining, and muxing happen locally in your browser using bundled WebAssembly (ffmpeg.wasm). Video data never leaves your machine through us.</li>
     </ul>
 
-    <h2>The only network request we make</h2>
-    <p>To unlock Pro features, the extension sends your <strong>license key</strong> and a generated <strong>instance id</strong> to LemonSqueezy (<code>api.lemonsqueezy.com</code>) solely to verify that your license is valid. This request contains no browsing data and no video content. LemonSqueezy's handling of that data is governed by their own privacy policy.</p>
-    <p>If you never enter a license key, the extension makes no requests to us or to LemonSqueezy at all.</p>
+    <h2>Network requests</h2>
+    <p>The extension does <strong>not</strong> send your data anywhere. It has no backend and makes no requests to any server operated by us. It only fetches the video stream and its segments directly from the site you are already on, in order to save them locally. Nothing about your activity is transmitted to us or any third party.</p>
 
     <h2>Permissions and why they are needed</h2>
     <ul>
@@ -76,7 +75,7 @@
     <p>License status, your consent timestamp, and your filename template are stored locally in your browser (<code>chrome.storage.local</code>). Detected streams and download job state are stored in session memory (<code>chrome.storage.session</code>) and cleared when the browser session ends.</p>
 
     <h2>Contact</h2>
-    <p>Questions about this policy: <a href="mailto:chenleejr+support@gmail.com">chenleejr+support@gmail.com</a></p>
+    <p>Questions about this policy: <a href="mailto:chenleejr@gmail.com">chenleejr@gmail.com</a></p>
   </main>
   <footer>© Streamlift · <a href="index.html">Home</a></footer>
 </body>
