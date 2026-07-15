@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Streamlift — Privacy Policy</title>
+<meta name="description" content="Streamlift privacy policy: everything runs locally; the only network request is a Pro license check.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F4F5F7; --panel:#FFFFFF; --ink:#16181D; --muted:#5B616E;
+    --line:#E4E6EB; --accent:#E5393A; --accent-deep:#B0201F;
+    --display:"Archivo",system-ui,sans-serif;
+    --body:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:720px;margin:0 auto;padding:0 24px}
+  a{color:var(--accent-deep)}
+  nav{display:flex;align-items:center;justify-content:space-between;max-width:720px;margin:0 auto;padding:22px 24px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:900;font-size:20px;letter-spacing:-.02em;text-decoration:none;color:var(--ink)}
+  .logo{width:30px;height:30px;border-radius:8px;background:var(--accent);position:relative;flex:0 0 auto}
+  .logo::before{content:"";position:absolute;left:50%;top:26%;width:10px;height:10px;border-right:3px solid #fff;border-bottom:3px solid #fff;transform:translateX(-50%) rotate(45deg)}
+  .logo::after{content:"";position:absolute;left:24%;right:24%;bottom:24%;height:3px;border-radius:2px;background:#fff}
+  .nav-link{font-family:var(--display);font-weight:700;font-size:14px;text-decoration:none;color:var(--ink)}
+  header{padding:26px 0 8px}
+  h1{font-family:var(--display);font-weight:900;font-size:clamp(30px,6vw,46px);letter-spacing:-.02em;margin:0}
+  .updated{color:var(--muted);font-size:14px;margin-top:8px}
+  main{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:16px 34px 34px;margin:24px 0 60px;box-shadow:0 12px 40px rgba(20,24,32,.05)}
+  h2{font-family:var(--display);font-weight:700;font-size:21px;letter-spacing:-.01em;margin:34px 0 6px}
+  p{margin:10px 0}
+  ul{margin:10px 0;padding-left:22px}
+  li{margin:7px 0}
+  strong{font-weight:700}
+  code{background:#EEF0F4;border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:14px}
+  footer{color:var(--muted);font-size:14px;text-align:center;padding-bottom:50px}
+  footer a{color:var(--muted)}
+</style>
+</head>
+<body>
+  <nav>
+    <a class="brand" href="index.html"><span class="logo"></span>Streamlift</a>
+    <a class="nav-link" href="index.html">← Back</a>
+  </nav>
+  <header class="wrap">
+    <h1>Privacy Policy</h1>
+    <div class="updated">Last updated: 2026-07-15</div>
+  </header>
+  <main class="wrap">
+    <p>Streamlift is a browser extension that saves video streams to a single MP4 file, entirely on your own device. This policy explains exactly what data the extension does and does not handle.</p>
+
+    <h2>What we do NOT collect</h2>
+    <ul>
+      <li>We do <strong>not</strong> collect, store, or transmit your browsing history, the pages you visit, the videos you detect, or the videos you download.</li>
+      <li>We do <strong>not</strong> run analytics, tracking, advertising, or fingerprinting of any kind.</li>
+      <li>We do <strong>not</strong> operate a server that receives your video content. All stream sniffing, downloading, segment joining, and muxing happen locally in your browser using bundled WebAssembly (ffmpeg.wasm). Video data never leaves your machine through us.</li>
+    </ul>
+
+    <h2>The only network request we make</h2>
+    <p>To unlock Pro features, the extension sends your <strong>license key</strong> and a generated <strong>instance id</strong> to LemonSqueezy (<code>api.lemonsqueezy.com</code>) solely to verify that your license is valid. This request contains no browsing data and no video content. LemonSqueezy's handling of that data is governed by their own privacy policy.</p>
+    <p>If you never enter a license key, the extension makes no requests to us or to LemonSqueezy at all.</p>
+
+    <h2>Permissions and why they are needed</h2>
+    <ul>
+      <li><strong>Host access (optional, <code>&lt;all_urls&gt;</code>)</strong> — requested only when you click "Enable", so the extension can observe media requests on pages where you want to save a video. You may grant it for all sites or a single site. It is used purely to detect stream manifests; nothing is sent anywhere.</li>
+      <li><strong>webRequest</strong> — to detect video manifest and segment URLs as the page loads them.</li>
+      <li><strong>downloads</strong> — to save the finished MP4 to your computer.</li>
+      <li><strong>offscreen</strong> — to run ffmpeg.wasm for joining and remuxing segments.</li>
+      <li><strong>storage</strong> — to remember your license status, consent, and filename preference locally.</li>
+      <li><strong>tabs / webNavigation</strong> — to associate detected streams with the current tab and clear them on navigation.</li>
+    </ul>
+
+    <h2>Data storage</h2>
+    <p>License status, your consent timestamp, and your filename template are stored locally in your browser (<code>chrome.storage.local</code>). Detected streams and download job state are stored in session memory (<code>chrome.storage.session</code>) and cleared when the browser session ends.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about this policy: <a href="mailto:chenleejr+support@gmail.com">chenleejr+support@gmail.com</a></p>
+  </main>
+  <footer>© Streamlift · <a href="index.html">Home</a></footer>
+</body>
+</html>
